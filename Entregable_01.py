@@ -94,6 +94,19 @@
 # Los hijos de Eva son 2 y Marcos
 # Los hijos de Jesus son Antonio y Ivan
 # Los hijos de Francisco son Jose y Rafael
+
+
+# Nótese que:
+# - Supondremos que en la frase de entrada las palabras se separan mediante un
+#   único espacio, y que los únicos números que aparecen son dígitos de 0 a 9.
+# - No todas las sustituciones indican sustitución para todos los dígitos que
+#   aparezcan en la frase. Por ejemplo, la tercera línea del ejemplo, no
+#   indica sustitución para 2, y en ese caso se deja sin sustituir.
+# - Asimismo, puede que la sustitución indique sustitución para más dígitos de
+#   los que aparece en la frase.
+
+# INDICACIÓN: pueden ser útiles los métodos split y join de la clase string.
+# -----------------------------------------------------------------------------
 fichero = "sustituciones.txt"
 frase = "1 me dijo que 0 vendría con 2"
 
@@ -123,19 +136,6 @@ def sustituye_patrones(frase, fichero):
 
 print(sustituye_patrones(frase, fichero))
 print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
-
-# Nótese que:
-# - Supondremos que en la frase de entrada las palabras se separan mediante un
-#   único espacio, y que los únicos números que aparecen son dígitos de 0 a 9.
-# - No todas las sustituciones indican sustitución para todos los dígitos que
-#   aparezcan en la frase. Por ejemplo, la tercera línea del ejemplo, no
-#   indica sustitución para 2, y en ese caso se deja sin sustituir.
-# - Asimismo, puede que la sustitución indique sustitución para más dígitos de
-#   los que aparece en la frase.
-
-# INDICACIÓN: pueden ser útiles los métodos split y join de la clase string.
-# -----------------------------------------------------------------------------
-
 # -----------------------------------------------------------------------------
 # EJERCICIO 2)
 
