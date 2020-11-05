@@ -7,14 +7,14 @@
 
 # GRUPO:
 # INTEGRANTE 1:
-#   APELLIDOS, NOMBRE:
-#   DNI:
+#   APELLIDOS, NOMBRE: Masset Ruiz Andres
+#   DNI:77862558Z
 # INTEGRANTE 2:
-#   APELLIDOS, NOMBRE:
-#   DNI:
+#   APELLIDOS, NOMBRE: Meléndez Contreras, Javier
+#   DNI:29509288N
 # INTEGRANTE 3:
-#   APELLIDOS, NOMBRE:
-#   DNI:
+#   APELLIDOS, NOMBRE: Carlos García Acevedo
+#   DNI:77869085D
 
 # Escribir el código Python de las funciones que se piden en el
 # espacio que se indica en cada ejercicio.
@@ -95,7 +95,6 @@
 # Los hijos de Jesus son Antonio y Ivan
 # Los hijos de Francisco son Jose y Rafael
 
-def sustituye_patrones(frase, fichero):
 
 # Nótese que:
 # - Supondremos que en la frase de entrada las palabras se separan mediante un
@@ -108,7 +107,35 @@ def sustituye_patrones(frase, fichero):
 
 # INDICACIÓN: pueden ser útiles los métodos split y join de la clase string.
 # -----------------------------------------------------------------------------
+fichero = "sustituciones.txt"
+frase = "1 me dijo que 0 vendría con 2"
 
+def sustituye_patrones(frase, fichero):
+    numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+    with open(fichero, "r") as f:
+        fichero = f.read()
+    nombres = [i.rstrip("\n") for i in fichero.split(":")]
+
+    # linea = nombres[0].split(":")
+    # linea = linea.pop()
+    # print(linea)
+    # nombres = nombres.split(":")
+
+    nombres = [i for i in nombres if i]
+
+    for i in numeros:
+        for x in frase:
+            if x.isdigit():
+                num = x.isdigit()
+                frase = frase.replace(str(i), nombres[i])
+
+    num = len(nombres)
+    return frase
+
+
+print(sustituye_patrones(frase, fichero))
+print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
 # -----------------------------------------------------------------------------
 # EJERCICIO 2)
 
@@ -178,7 +205,20 @@ def sustituye_patrones(frase, fichero):
 # - Las líneas de salida del ejemplo han sido impresas con la siguiente cadena
 #   de formateo:  "{0:>8} {1:<30} {2:<15} {3}"
 # ----------------------------------------------------------------------------------
+fichero = "nombres.txt"
+def imprime_usuarios(fichero):
+    with open(fichero,"r") as f:
+        fichero = f.read()
+        lineas = [i for i in fichero.split(":")]
+        lineas = " ".join(lineas)
+        lineas = lineas.split("\n")
 
+        for x in lineas:
+            print(x)
+
+        return fichero
+
+imprime_usuarios(fichero)
 # -----------------------------------------------------------------------------
 # EJERCICIO 3) EL DECODIFICADOR
 
@@ -220,10 +260,47 @@ def sustituye_patrones(frase, fichero):
 #
 # Hay algunas instrucciones que pueden ser de utilidad para desarrollar este
 # sencillo juego:
-
 import random
-digits = list(range(10))
-random.shuffle(digits)
-print(digits[:3])
-guess = input("¿Cuál es tú apuesta?: ")
-print(guess)
+
+valores = ("0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9")
+
+cant_digitos = 3
+codigo = "123"
+
+for i in range ( cant_digitos ) :
+    candidato = random.choice ( valores )
+
+    while candidato in codigo :
+        candidato = random.choice ( valores )
+    codigo = codigo + candidato
+
+print ( "¡Bienvenido al decodificador!" )
+print ( "Tienes que adivinar un numero de " , cant_digitos , "cifras, vamos a full!! " )
+propuesta = input ( '¿Cuál es tú apuesta?: ' )
+
+intentos = 3
+while propuesta != codigo and propuesta != 'error' :
+    intentos = intentos + 1
+    aciertos = 0
+    coincidencias = 0
+    for i in range ( cant_digitos ) :
+        if propuesta [ i ] == codigo [ i ] :
+            aciertos = aciertos + 1
+        elif propuesta [ i ] in codigo :
+            coincidencias = coincidencias + 1
+    print ( "Tu propuesta (" , propuesta , ") tiene" , aciertos ,
+            "aciertos y " , coincidencias , "coincidencias." )
+
+    if coincidencias == 3 :
+        print ( "¡Casi!, reordénalos." )
+    elif coincidencias == 2 :
+        
+        print ( " Cerca, ¡sigue así!" )
+    elif propuesta == candidato :
+        
+        print ( "¡Enhorabuena, ahora eres un hacker! " ,intentos , "intentos realizados" )
+    propuesta = input ( "Inténtalo de nuevo.  " )
+
+else :
+    print ( "¡Enhorabuena, ahora eres un hacker! " , intentos , "intentos realizados" )
+
