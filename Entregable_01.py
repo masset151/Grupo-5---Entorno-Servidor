@@ -10,8 +10,8 @@
 #   APELLIDOS, NOMBRE: Masset Ruiz Andres
 #   DNI:77862558Z
 # INTEGRANTE 2:
-#   APELLIDOS, NOMBRE:
-#   DNI:
+#   APELLIDOS, NOMBRE: Meléndez Contreras, Javier
+#   DNI:29509288N
 # INTEGRANTE 3:
 #   APELLIDOS, NOMBRE:
 #   DNI:
@@ -205,7 +205,20 @@ print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
 # - Las líneas de salida del ejemplo han sido impresas con la siguiente cadena
 #   de formateo:  "{0:>8} {1:<30} {2:<15} {3}"
 # ----------------------------------------------------------------------------------
+fichero = "nombres.txt"
+def imprime_usuarios(fichero):
+    with open(fichero,"r") as f:
+        fichero = f.read()
+        lineas = [i for i in fichero.split(":")]
+        lineas = " ".join(lineas)
+        lineas = lineas.split("\n")
 
+        for x in lineas:
+            print(x)
+
+        return fichero
+
+imprime_usuarios(fichero)
 # -----------------------------------------------------------------------------
 # EJERCICIO 3) EL DECODIFICADOR
 
