@@ -122,7 +122,7 @@ def sustituye_patrones(frase, fichero):
 
 
 print(sustituye_patrones(frase, fichero))
-print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
+
 
 # Nótese que:
 # - Supondremos que en la frase de entrada las palabras se separan mediante un
