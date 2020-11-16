@@ -97,6 +97,9 @@
 fichero = "sustituciones.txt"
 frase = "1 me dijo que 0 vendría con 2"
 
+fichero = "sustituciones.txt"
+frase = "1 me dijo que 0 vendría con 2"
+
 def sustituye_patrones(frase, fichero):
     numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
@@ -104,25 +107,15 @@ def sustituye_patrones(frase, fichero):
         fichero = f.read()
     nombres = [i.rstrip("\n") for i in fichero.split(":")]
 
-    # linea = nombres[0].split(":")
-    # linea = linea.pop()
-    # print(linea)
-    # nombres = nombres.split(":")
 
     nombres = [i for i in nombres if i]
 
     for i in numeros:
         for x in frase:
             if x.isdigit():
-                num = x.isdigit()
                 frase = frase.replace(str(i), nombres[i])
 
-    num = len(nombres)
     return frase
-
-
-print(sustituye_patrones(frase, fichero))
-print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
 
 # Nótese que:
 # - Supondremos que en la frase de entrada las palabras se separan mediante un
@@ -248,9 +241,3 @@ print(sustituye_patrones("Los hijos de 6 son 7 y 8", fichero))
 # Hay algunas instrucciones que pueden ser de utilidad para desarrollar este
 # sencillo juego:
 
-import random
-digits = list(range(10))
-random.shuffle(digits)
-print(digits[:3])
-guess = input("¿Cuál es tú apuesta?: ")
-print(guess)
