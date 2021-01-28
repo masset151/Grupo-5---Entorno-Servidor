@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/chats.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat">
+        <div class="chat-header">
+          <div class="profile">
+            <div class="left">
+              <img src="{% static 'images/img/arrow-left.svg' %}" class="arrow" alt="arrow" />
+              <img src="{% static 'images/img/pp.jpg' %}" class="profile-pic" alt="profile pic" />
+              <h2>Jessica Vaz</h2>
+            </div>
+            <div class="right">
+              <img src="{% static 'images/img/video.svg' %}" class="icon" alt="vedio" />
+              <img src="{% static 'images/img/info-circle.svg' %}" class="icon" alt="vedio" />
+            </div>
+          </div>
+        </div>
+        <div class="chat-box">
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/pp.jpg' %}" alt="Profile pic" />
+              <div class="message-text">
+                Hey there!
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">Hey, how are you?</div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/pp.jpg' %}" alt="Profile pic" />
+              <div class="message-text">
+                Am fine, thank you.
+              </div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/arrow.png' %}" alt="Profile pic" />
+              <img src="{% static 'images/img/sunset.jpg' %}" id="chat-img" alt="" />
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/arrow.png' %}" alt="Profile pic" />
+              <div class="message-text">
+                Here's a pic of sunset which I took today.
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">
+                Wow
+
+                <img src="{% static 'images/img/simley-heart.png' %}" id="emoji" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">Its amazing!</div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/pp.jpg' %}" alt="Profile pic" />
+              <div class="message-text">
+                Thank you
+                <img src="{% static 'images/img/smile.png' %}" id="emoji" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">
+                Will you come for jogging tomorrow?
+              </div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/pp.jpg' %}" alt="Profile pic" />
+              <div class="message-text">
+                Sure!
+              </div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/arrow.png' %}" alt="Profile pic" />
+              <div class="message-text">
+                At what time?
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">6:30</div>
+            </div>
+          </div>
+          <div class="message-row other-message">
+            <div class="message-content">
+              <img src="{% static 'images/img/pp.jpg' %}" alt="Profile pic" />
+              <div class="message-text">
+                Sure,I'll be there.
+              </div>
+            </div>
+          </div>
+          <div class="message-row you-message">
+            <div class="message-content">
+              <div class="message-text">See you in the morning!</div>
+              <br />
+              <div class="message-time">Seen</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-footer">
+          <img src="{% static 'images/img/camera.png' %}" class="camera" />
+          <textarea placeholder="Message..."></textarea>
+          <div class="icons">
+            <img src="{% static 'images/img/microphone-alt.svg' %}" />
+            <img src="{% static 'images/img/image.svg' %}" />
+            <img src="{% static 'images/img/sticky-note.svg' %}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

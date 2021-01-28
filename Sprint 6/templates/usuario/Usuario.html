@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'css/usuario.css' %}">
+</head>
+<body>
+    <div class="content-profile-page">
+        <div class="profile-user-page card">
+           <div class="img-user-profile">
+             <img class="profile-bgHome" src="{% static 'images/eastblue.jpg' %}" />
+             <img class="avatar" src="{% static 'images/luffy.png' %}" alt="jofpin"/>
+                </div>
+               <button>Seguir</button>
+               <div class="user-profile-data">
+                 <h1>Monkey D. Luffy</h1>
+                 <p>Futuro Rey de los piratas</p>
+               </div> 
+               <div class="description-profile">Capitán | Portador de la Gomu Gomu no mi | Sombrero de paja | CARNE!!! </div>
+            <ul class="data-user">
+             <li><a><strong>959</strong><span>Publicaciones</span></a></li>
+             <li><a><strong>1.500.000.000</strong><span>Seguidores</span></a></li>
+             <li><a><strong>10</strong><span>Siguiendo</span></a></li>
+            </ul>
+           </div>
+         </div>
+</body>
+</html>

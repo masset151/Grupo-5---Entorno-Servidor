@@ -1,0 +1,24 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	background: #fff;
+}
+
+header{
+	background: #FAFAFA;
+	border-bottom: 1px solid #ccc;
+
+}
+
+header a{
+	width: 25%;
+	display: inline-block;
+	margin-left: -3px;
+	text-align: center;
+	color:#111;
+	font-size: 25px; 
+	padding: 10px 0;
+}
