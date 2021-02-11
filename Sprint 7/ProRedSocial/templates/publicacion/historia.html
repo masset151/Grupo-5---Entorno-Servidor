@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-slace=1.0">
+    <title>Funciono</title>
+</head>
+
+<body>
+    <h1>Historia</h1>
+
+    {% if historia %}
+    <ul>
+        {% for his in historia %}
+        <li>Publicacion:</li>
+        <ul>
+            <li>id: {{his.id_historia}}</li>
+            <li>Usuario: {{his.usuario.nombre}}</li>
+            <li>historia: <img src={{his.archivo}}></li>
+        </ul>
+        {% endfor %}
+        
+    </ul>
+     {% endif %}
+
+</body>
+
+</html>
