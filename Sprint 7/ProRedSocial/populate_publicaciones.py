@@ -18,6 +18,8 @@ from usuario.models import Usuario
 def populate(N=5):
     for entry in range(N):
         id = random.choice(range(Usuario.objects.count()))
+        if(id==0):
+            id = id + 1
         num = Publicacion.objects.count()
         fake_id = num+1
         fake_lugar = fakegen.city()
@@ -30,5 +32,5 @@ def populate(N=5):
 
 if __name__ == '__main__':
     print("Rellenando Base de Datos")
-    populate(10)
+    populate(1000)
     print("Completado")

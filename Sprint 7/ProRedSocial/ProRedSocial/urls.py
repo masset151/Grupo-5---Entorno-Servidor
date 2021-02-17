@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include("AppRedSocial.urls")),
     path('registro/', include('registro.urls')),
     path('publicacion/', include('publicacion.urls')),
     path('login/', include('login.urls')),
