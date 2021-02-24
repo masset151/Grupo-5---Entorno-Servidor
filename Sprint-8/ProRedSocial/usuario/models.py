@@ -1,7 +1,6 @@
 from django.db import models
 from AppRedSocial.models import User
 
-
 # Create your models here.
 class Usuario(models.Model):
     id_usuario = models.IntegerField(primary_key=True)

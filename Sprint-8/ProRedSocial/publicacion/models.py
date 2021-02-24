@@ -10,6 +10,8 @@ class Publicacion(models.Model):
     lugar = models.CharField(max_length=300)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     archivo = models.URLField()
+    def __int__(self):
+        return self.id_publicacion
 
 class ConsultarPublicacion(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
@@ -19,6 +21,8 @@ class Historia(models.Model):
     id_historia = models.IntegerField(primary_key=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     archivo = models.URLField()
+    def __int__(self):
+        return self.id_historia
 
 class VerHistoria(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)

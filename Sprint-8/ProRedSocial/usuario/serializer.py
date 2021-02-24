@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from usuario.models import Usuario
 from AppRedSocial.serializer import UserSerializer
+
 class UsuarioSerializer(serializers.Serializer):
     id_usuario = serializers.IntegerField()
     nombre = serializers.CharField(max_length=128)

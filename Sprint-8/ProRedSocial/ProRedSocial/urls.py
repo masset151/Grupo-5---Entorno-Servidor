@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from AppRedSocial import views
+from publicacion import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,8 +29,7 @@ urlpatterns = [
     path('cabecera/', include('cabecera.urls')),
     path('chats/', include('chats.urls')),
     path('inicio/', include('inicio.urls')),
-    path('users/',views.user_list),
-    path('user/<slug:value>/',views.user_details),
-    path('app/',include('usuario.urls'))
+    path('app/',include('usuario.urls')),
+    path('apps/',include('publicacion.urls'))
     
 ]
