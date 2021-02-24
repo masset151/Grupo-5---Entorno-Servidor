@@ -30,4 +30,6 @@ urlpatterns = [
     path('inicio/', include('inicio.urls')),
     path('users/',views.user_list),
     path('user/<slug:value>/',views.user_details),
+    path('app/',include('usuario.urls'))
+    
 ]
