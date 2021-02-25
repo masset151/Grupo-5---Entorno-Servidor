@@ -27,6 +27,7 @@ urlpatterns = [
     path('cabecera/', include('cabecera.urls')),
     path('chats/', include('chats.urls')),
     path('inicio/', include('inicio.urls')),
-    path('app/',include('usuario.urls'))
+    path('app/',include('usuario.urls')),
+    path('app/', include('chats.urls')),
     
 ]

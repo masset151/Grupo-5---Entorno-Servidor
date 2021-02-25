@@ -7,5 +7,8 @@ from chats.models import Chat
 
 class Cabecera(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    historia = models.ForeignKey(Historia, on_delete=models.CASCADE)
-    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
+    historia = models.ForeignKey(Historia, on_delete=models.CASCADE,null=True)
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE,null=True)
+
+    def __int__(self):
+        return self.id_chat
