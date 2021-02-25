@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from publicacion.models import Publicacion, ConsultarPublicacion, Historia, VerHistoria
 from usuario.models import Usuario
 from rest_framework.parsers import JSONParser
-from publicacion.serializer import PublicacionSerializer
+from publicacion.serializer import PublicacionSerializer,HistoriaSerializer
 
 # Create your views here.
 def publicacion(request):
