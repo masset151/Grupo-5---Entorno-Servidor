@@ -19,7 +19,7 @@ class ConsultarPublicacion(models.Model):
 
 class Historia(models.Model):
     id_historia = models.IntegerField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=True)
     archivo = models.URLField()
     def __int__(self):
         return self.id_historia
