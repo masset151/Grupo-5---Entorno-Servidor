@@ -1,5 +1,6 @@
 from django.db import models
-from AppRedSocial.models import User
+
+
 
 # Create your models here.
 class Usuario(models.Model):
@@ -8,8 +9,10 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=128)
     email = models.EmailField(max_length=264, unique=True)
     contraseña = models.CharField(max_length=128)
-    nick =  models.ForeignKey('AppRedSocial.User',unique=False,max_length=30,on_delete=models.CASCADE)
+    nick = models.CharField(unique=True,max_length=100)
 
+
+  
 
     def __int__(self):
         return self.id_usuario

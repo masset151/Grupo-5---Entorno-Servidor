@@ -8,7 +8,7 @@ class Publicacion(models.Model):
     fecha = models.DateField(auto_now_add=True)
     hora = models.DateTimeField(auto_now=True)
     lugar = models.CharField(max_length=300)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=True)
     archivo = models.URLField()
     def __int__(self):
         return self.id_publicacion

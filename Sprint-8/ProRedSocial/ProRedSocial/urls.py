@@ -15,21 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from AppRedSocial import views
-from publicacion import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("AppRedSocial.urls")),
     path('registro/', include('registro.urls')),
-    path('publicacion/', include('publicacion.urls')),
+    path('app/', include('publicacion.urls')),
     path('login/', include('login.urls')),
     path('cuenta/', include('cuenta.urls')),
     path('usuario/', include('usuario.urls')),
     path('cabecera/', include('cabecera.urls')),
     path('chats/', include('chats.urls')),
     path('inicio/', include('inicio.urls')),
-    path('app/',include('usuario.urls')),
-    path('apps/',include('publicacion.urls'))
+    path('app/',include('usuario.urls'))
     
 ]

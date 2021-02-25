@@ -41,6 +41,8 @@ def detalles_usuario(request,value):
         serializer = UsuarioSerializer(usuario)
         return JsonResponse(serializer.data,safe=False,status=200)
 
+        
+
     
     elif request.method == "PUT":
         data = JSONParser().parse(request)
