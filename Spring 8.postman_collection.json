@@ -1,0 +1,590 @@
+{
+	"info": {
+		"_postman_id": "8c59bb62-29df-4f0f-8347-dc829025e77e",
+		"name": "Spring 8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/usuarios/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_usuario\": 2,\r\n        \"nombre\": \"Carlos\",\r\n        \"apellido\": \"Garcia Acevedo\",\r\n        \"email\": \"bachilon98@gmail.com\",\r\n        \"contraseña\": \"usuario\",\r\n        \"nick\": \"bachilon\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/usuarios/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_usuario\": 1,\r\n        \"nombre\": \"Andres\",\r\n        \"apellido\": \"Masset Ruiz\",\r\n        \"email\": \"masset.ruiz152@gmail.com\",\r\n        \"contraseña\": \"usuario\",\r\n        \"nick\": \"Masset_151\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/usuarios/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"usuarios",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/usuarios/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"usuarios",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear publicacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_publicacion\": 2,\r\n        \"fecha\": \"2021-02-25\",\r\n        \"hora\": \"2021-02-25T12:34:41.627030Z\",\r\n        \"lugar\": \"Plaza de San Francisco\",\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"ElCirial\",\r\n            \"apellido\": \"Cofrade\",\r\n            \"email\": \"masset.ruiz151@gmail.com\",\r\n            \"contraseña\": \"cirial\",\r\n            \"nick\": {\r\n                \"id_user\": 1,\r\n                \"first_name\": \"Cirial\",\r\n                \"last_name\": \"Cofrade\",\r\n                \"email\": \"masset.ruiz151@gmail.com\",\r\n                \"nick\": \"ElCirialTV\"\r\n            }\r\n        },\r\n        \"archivo\": \"https://elcorreoweb.es/binrepository/cerro-2017-campana_20557707_20210104163647.jpg\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/publicacion/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"publicacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver publicación",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/publicacion/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"publicacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Publicacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"id_publicacion\": 1,\r\n        \"fecha\": \"2021-02-25\",\r\n        \"hora\": \"2021-02-25T13:15:08.144490Z\",\r\n        \"lugar\": \"Palquillo la Campana\",\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz151@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"archivo\": \"https://elcorreoweb.es/binrepository/cerro-2017-campana_20557707_20210104163647.jpg\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/publicacion/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"publicacion",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar publicacion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/publicacion/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"publicacion",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Historias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/historia/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"historia",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Historia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id_historia\": 2,\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz152@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"archivo\": \"https://elcorreoweb.es/binrepository/los-gitanos-vuelta-20_20405256_20200402205902.jpg\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/historia/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"historia",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Historia",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_historia\": 1,\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz152@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"archivo\": \"https://i2.wp.com/bartapassevilla.com/wp-content/uploads/2016/02/semana-santa-sevilla-dia-p.jpg\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/historia/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"historia",
+						"1",
+						""
+					]
+				},
+				"description": "Spring 8"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Historia",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/historia/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"historia",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Chat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/chat/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"chat",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Chat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_chat\": 1,\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz152@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"mensaje\": \"Esto es un mensaje desde Postman con PUT\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/chat/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"chat",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Chat",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id_chat\": 1,\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz152@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"mensaje\": \"Esto es un mensaje desde Postman con PUT\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/chat/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"chat",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Chat",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/chat/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"chat",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cabeceras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://itunes.apple.com/lookup?upc=720642462928&entity=song",
+					"protocol": "https",
+					"host": [
+						"itunes",
+						"apple",
+						"com"
+					],
+					"path": [
+						"lookup"
+					],
+					"query": [
+						{
+							"key": "upc",
+							"value": "720642462928"
+						},
+						{
+							"key": "entity",
+							"value": "song"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://itunes.apple.com/lookup?amgAlbumId=15175,15176,15177,15178,15183,15184,15187,1519,15191,15195,15197,15198",
+					"protocol": "https",
+					"host": [
+						"itunes",
+						"apple",
+						"com"
+					],
+					"path": [
+						"lookup"
+					],
+					"query": [
+						{
+							"key": "amgAlbumId",
+							"value": "15175,15176,15177,15178,15183,15184,15187,1519,15191,15195,15197,15198"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Cabecera",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/cabecera/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"cabecera",
+						"1",
+						""
+					]
+				},
+				"description": "Esta request url sirve para borrar una publicacion en Facebook"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Cabecera",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"usuario\": {\r\n            \"id_usuario\": 1,\r\n            \"nombre\": \"Andres\",\r\n            \"apellido\": \"Masset Ruiz\",\r\n            \"email\": \"masset.ruiz152@gmail.com\",\r\n            \"contraseña\": \"usuario\",\r\n            \"nick\": \"Masset_151\"\r\n        },\r\n        \"historia\": {\r\n            \"id_historia\": 2,\r\n            \"usuario\": {\r\n                \"id_usuario\": 1,\r\n                \"nombre\": \"Andres\",\r\n                \"apellido\": \"Masset Ruiz\",\r\n                \"email\": \"masset.ruiz152@gmail.com\",\r\n                \"contraseña\": \"usuario\",\r\n                \"nick\": \"Masset_151\"\r\n            },\r\n            \"archivo\": \"https://i2.wp.com/bartapassevilla.com/wp-content/uploads/2016/02/semana-santa-sevilla-dia-p.jpg\"\r\n        },\r\n        \"chat\": {\r\n            \"id_chat\": 1,\r\n            \"usuario\": {\r\n                \"id_usuario\": 1,\r\n                \"nombre\": \"Andres\",\r\n                \"apellido\": \"Masset Ruiz\",\r\n                \"email\": \"masset.ruiz152@gmail.com\",\r\n                \"contraseña\": \"usuario\",\r\n                \"nick\": \"Masset_151\"\r\n            },\r\n            \"mensaje\": \"Hola desde Postman con PUT\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/app/cabecera/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"app",
+						"cabecera",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
