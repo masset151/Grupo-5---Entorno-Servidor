@@ -16,17 +16,25 @@ def cabecera(request):
 @csrf_exempt
 def lista_cabecera(request):
     if request.method == "GET":
-        cabecera = Cabecera.objects.all()
-        serializer = CabeceraSerializer(cabecera,many=True)
-        return JsonResponse(serializer.data,safe=False,status=200)
+        try:
+            cabecera = Cabecera.objects.all()
+            serializer = CabeceraSerializer(cabecera,many=True)
+            return JsonResponse(serializer.data,safe=False,status=200)
+        except:
+            if cabecera.objects.DoesNotExist:
+                return HttpResponse(status=404)
     elif request.method == "POST":
-        data = JSONParser().parse(request)
-        serializer = CabeceraSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-
-        return JsonResponse(serializer.errors, status=204)
+        try:
+            data = JSONParser().parse(request)
+            serializer = CabeceraSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=201)
+        except:
+            if serializer.errors:
+                return HttpResponse(status=404)
+            else:
+                return HttpResponse(status=500)
 
 @csrf_exempt
 def detalles_cabecera(request,value):
@@ -37,18 +45,27 @@ def detalles_cabecera(request,value):
 
 
     if request.method == "GET":
-        serializer = CabeceraSerializer(cabecera)
-        return JsonResponse(serializer.data,safe=False,status=200)
+        try:
+            serializer = CabeceraSerializer(cabecera)
+            return JsonResponse(serializer.data,safe=False,status=200)
+        except: 
+            if serializer.errors:
+                return HttpResponse(status=404)
+            else:
+                return HttpResponse(status=500)
+
 
     
     elif request.method == "PUT":
-        data = JSONParser().parse(request)
-        serializer = CabeceraSerializer(cabecera,data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=200)
-
-        return JsonResponse(serializer.errors, status=204)
+        try:
+            data = JSONParser().parse(request)
+            serializer = CabeceraSerializer(cabecera,data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=200)
+        except:
+            if serializer.errors:
+                return JsonResponse(status=204)
 
     elif request.method == "DELETE":
         try:
@@ -56,6 +73,8 @@ def detalles_cabecera(request,value):
             return HttpResponse(status=200)
         
         except:
-    
-            return HttpResponse(status=409)
+            if cabecera.DoesNotExist():
+                return HttpResponse(status=409)
+            else: 
+                return HttpResponse(status=500)
     

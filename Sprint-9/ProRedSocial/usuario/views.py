@@ -25,7 +25,10 @@ def lista_usuario(request):
             return JsonResponse(serializer.data, safe=False, status=200)
 
         except:
-            return JsonResponse(Exception, status=500)
+            if Usuario.objects.DoesNotExist:
+                return HtppResponse(status=404)
+            else:
+                return HtppResponse(status=500)
 
     elif request.method == "POST":
         try:
@@ -37,15 +40,20 @@ def lista_usuario(request):
 
             return JsonResponse(serializer.errors, status=204)
         except:
-            return JsonResponse(Exception, status=204)
+            if not serializer.is_valid():
+                return HtppResponse(status=400)
+            return HtppResponse(status=500)
 
 
 @csrf_exempt
 def detalles_usuario(request, value):
     try:
         usuario = Usuario.objects.get(id_usuario=value)
-    except Usuario.DoesNotExist:
-        return HttpResponse(status=404)
+    except: 
+        if  Usuario.DoesNotExist:
+            return HttpResponse(status=404)
+        else :
+            return HttpResponse(status=504)
 
     if request.method == "GET":
 
@@ -53,7 +61,7 @@ def detalles_usuario(request, value):
             serializer = UsuarioSerializer(usuario)
             return JsonResponse(serializer.data, safe=False, status=200)
         except:
-            return JsonResponse(Exception, status=400)
+            return HtppResponse(Exception, status=400)
 
     elif request.method == "PUT":
         try:
@@ -66,7 +74,10 @@ def detalles_usuario(request, value):
             return JsonResponse(serializer.errors, status=204)
 
         except:
-            return JsonResponse(Exception, status=400)
+            if not serializer.is_valid:
+                return HtppResponse(status=400)
+            else: 
+                return HtppResponse(status=500)
 
     elif request.method == "DELETE":
         try:
@@ -74,5 +85,7 @@ def detalles_usuario(request, value):
             return HttpResponse(status=200)
 
         except:
-
-            return HttpResponse(status=409)
+            if usuario.DoesNotExist():
+                return HttpResponse(status=409)
+            else:
+                return HttpResponse(status=500)

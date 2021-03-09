@@ -17,17 +17,25 @@ def chat(request):
 @csrf_exempt
 def lista_chat(request):
     if request.method == "GET":
-        chat = Chat.objects.all()
-        serializer = ChatSerializer(chat,many=True)
-        return JsonResponse(serializer.data,safe=False,status=200)
+        try:
+            chat = Chat.objects.all()
+            serializer = ChatSerializer(chat,many=True)
+            return JsonResponse(serializer.data,safe=False,status=200)
+        except:
+            if serializer.errors:
+                return HttpResponse(status=404)
+            else:
+                return HttpResponse(status=500)
     elif request.method == "POST":
-        data = JSONParser().parse(request)
-        serializer = ChatSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-
-        return JsonResponse(serializer.errors, status=204)
+        try:
+            data = JSONParser().parse(request)
+            serializer = ChatSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=201)
+        except:
+            if serializer.errors:
+                return HttpResponse(serializer.errors, status=404)
 
 @csrf_exempt
 def detalles_chat(request,value):
@@ -38,18 +46,29 @@ def detalles_chat(request,value):
 
 
     if request.method == "GET":
-        serializer = ChatSerializer(chat)
-        return JsonResponse(serializer.data,safe=False,status=200)
+        try:
+            serializer = ChatSerializer(chat)
+            return JsonResponse(serializer.data,safe=False,status=200)
+        except:
+            if serializer.errors:
+                return HttpResponse(status=404)
+            else:
+                return HttpResponse(status=500)
 
     
     elif request.method == "PUT":
-        data = JSONParser().parse(request)
-        serializer = ChatSerializer(chat,data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=200)
+        try:
+            data = JSONParser().parse(request)
+            serializer = ChatSerializer(chat,data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=200)
+        except:
+            if serializer.errors:
+                return HttpResponse(status=404)
+            else:
+                HttpResponse(status=500)
 
-        return JsonResponse(serializer.errors, status=204)
 
     elif request.method == "DELETE":
         try:
@@ -57,6 +76,8 @@ def detalles_chat(request,value):
             return HttpResponse(status=200)
         
         except:
-    
-            return HttpResponse(status=409)
+            if chat.DoesNotExist():
+                return HttpResponse(status=409)
+            else:
+                return HttpResponse(status=500)
     
